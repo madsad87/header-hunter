@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Redirect Review",
+  "name": "Header Hunter",
   "version": "1.0.0",
   "description": "Observe redirect chains and caching headers for the current tab.",
   "permissions": [
@@ -16,7 +16,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Redirect Review"
+    "default_title": "Header Hunter"
   },
   "content_scripts": [
     {
