@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Redirect Review",
+  "version": "1.0.0",
+  "description": "Observe redirect chains and caching headers for the current tab.",
+  "permissions": [
+    "webRequest",
+    "webNavigation",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Redirect Review"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}
