@@ -1,29 +1,32 @@
 {
   "manifest_version": 3,
-  "name": "Header Hunter",
-  "version": "1.0.0",
-  "description": "Observe redirect chains and caching headers for the current tab.",
-  "permissions": [
-    "webRequest",
-    "webNavigation",
-    "tabs",
-    "storage"
-  ],
-  "host_permissions": ["<all_urls>"],
+  "name": "Redirect Trace (Skeleton)",
+  "version": "0.1.0",
+  "description": "Trace main document redirects + status codes, cache headers, DNS (DoH), and platform detection.",
+  "action": {
+    "default_title": "Redirect Trace",
+    "default_popup": "src/popup.html"
+  },
   "background": {
-    "service_worker": "service_worker.js",
+    "service_worker": "src/background.js",
     "type": "module"
   },
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Header Hunter"
-  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "webRequest",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://cloudflare-dns.com/*"
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content_script.js"],
-      "run_at": "document_start",
-      "all_frames": false
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
     }
   ]
 }

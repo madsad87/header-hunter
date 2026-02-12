@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Redirect Trace</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="site">
+        <div class="host" id="host">—</div>
+        <div class="url" id="url">—</div>
+      </div>
+      <div class="actions">
+        <button id="btnRefresh" title="Refresh">↻</button>
+        <button id="btnCopy" title="Copy report">⧉</button>
+      </div>
+    </header>
+
+    <section class="summary">
+      <div class="pill" id="statusPill">—</div>
+      <div class="meta">
+        <span id="hopCount">0 hops</span>
+        <span id="totalTime">—</span>
+      </div>
+    </section>
+
+    <section class="flow">
+      <h2>Request flow</h2>
+      <div id="flowList" class="flowList"></div>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Cache</h3>
+        <div id="cacheCard" class="kv">—</div>
+      </div>
+      <div class="card">
+        <h3>DNS</h3>
+        <div id="dnsCard" class="kv">—</div>
+      </div>
+      <div class="card">
+        <h3>Platform</h3>
+        <div id="platformCard" class="kv">—</div>
+      </div>
+    </section>
+
+    <section class="tabs">
+      <div class="tabbar">
+        <button class="tab active" data-tab="headers">Headers</button>
+        <button class="tab" data-tab="cookies">Cookies</button>
+        <button class="tab" data-tab="export">Export</button>
+      </div>
+
+      <div class="tabpanel active" id="tab-headers">
+        <pre id="headersView">—</pre>
+      </div>
+
+      <div class="tabpanel" id="tab-cookies">
+        <pre id="cookiesView">—</pre>
+      </div>
+
+      <div class="tabpanel" id="tab-export">
+        <button id="btnCopyJson">Copy JSON</button>
+        <button id="btnCopyMarkdown">Copy Markdown</button>
+        <pre id="exportView">—</pre>
+      </div>
+    </section>
+
+    <script type="module" src="./popup.js"></script>
+  </body>
+</html>
